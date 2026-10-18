@@ -55,18 +55,10 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 ---
 
-## 3. TLSFix (Runtime Tweak Prerequisite)
-
-- **Component:** HTTPS TLS 1.2+ connectivity patch for legacy iOS 6.0–10.3.4
-- **Developer:** @nfzerox (https://github.com/nfzerox/TLSFix)
-- **License:** **MIT License**
-- **Note:** TLSFix is an independent Cydia Substrate runtime tweak required on jailbroken legacy iOS devices to allow secure HTTPS connections to YouTube streaming endpoints. It is not bundled inside the application binary.
-
----
-
-## 4. Theos Build System (External Toolchain)
+## 3. Theos Build System (External Toolchain)
 
 - **Component:** Cross-compilation harness & packaging toolchain
 - **Origin:** Theos Project (https://theos.dev)
 - **License:** **GNU General Public License v3.0 (GPLv3)**
 - **Note:** Theos was utilized strictly as an external build environment; no copyleft runtime libraries or proprietary stubs were linked into the compiled binary.
+

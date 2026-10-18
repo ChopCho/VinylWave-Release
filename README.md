@@ -14,14 +14,12 @@ VinylWave is a lightweight, retro-styled music player custom-built for legacy 32
 
 ---
 
-## Essential Prerequisites
+## Installation Prerequisites
 
-Before installing VinylWave on legacy iOS, two runtime components are required:
-
-1. **AppSync Unified (Jailbroken Devices):**  
-   Required to install and run ad-hoc signed `.ipa` packages without signature expiration or revokes. Install via Cydia/Zebra from `https://cydia.akemi.ai/`.
-2. **TLSFix Tweak (Mandatory for Network Connectivity):**  
-   Legacy iOS (iOS 6.0–10.3.4) does not natively support modern TLS 1.2/1.3 cipher suites required by HTTPS streaming endpoints. You **must** install the **TLSFix** tweak (by `@nfzerox`) via Cydia or your package manager to allow VinylWave to connect to streaming servers.
+- **AppSync Unified (Jailbroken Devices):**  
+  Required when installing ad-hoc signed `.ipa` packages on jailbroken devices to prevent signature verification errors and certificate revocation. Install via Zebra or Cydia from Karen's Repo (`https://cydia.akemi.ai/`). If you are sideloading using a personal Apple ID via Sideloadly or AltStore, AppSync Unified is optional.
+- **appinst (Command-Line IPA Installer):**  
+  Package `ai.akemi.appinst` (by Karen/あけみ & Linus Yang, available via Zebra or Cydia from `https://cydia.akemi.ai/`). Provides native on-device command-line installation of downloaded `.ipa` files directly on jailbroken hardware.
 
 ---
 

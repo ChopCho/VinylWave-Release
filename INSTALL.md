@@ -7,16 +7,17 @@ This guide covers installing **VinylWave v1.0.0-beta1** on an iPhone 5 or compat
 ## Prerequisites Checklist
 
 1. **A compatible iOS device:** iPhone 5 (`iPhone5,1` / `iPhone5,2`), iPad 4, or iPod touch 5 running iOS 6.0 to 10.3.4.
-2. **Jailbreak + AppSync Unified (Recommended):**
-   - Sideloaded ad-hoc IPAs will fail or expire without AppSync Unified.
-   - On jailbroken iOS, install **AppSync Unified** from `https://cydia.akemi.ai/`.
-3. **TLSFix Tweak (Mandatory for Network Connectivity):**
-   - Install **TLSFix** via Cydia / Zebra / Sileo.
-   - Without TLSFix, legacy iOS cannot establish TLS 1.2+ HTTPS handshakes with YouTube streaming servers, causing stream requests to fail.
+2. **AppSync Unified (Jailbroken Devices):**
+   - Required when installing ad-hoc signed IPAs without a personal developer certificate.
+   - Install **AppSync Unified** (`ai.akemi.appsyncunified`) via Zebra or Cydia from Karen's Repo (`https://cydia.akemi.ai/`).
+   - If sideloading with a personal Apple ID via Sideloadly or AltStore, AppSync Unified is optional.
+3. **appinst (App Installer) — Recommended for On-Device Installation:**
+   - Package `ai.akemi.appinst` (available via Zebra or Cydia from `https://cydia.akemi.ai/`).
+   - A command-line utility by Karen/あけみ & Linus Yang that allows installing `.ipa` packages directly on-device via terminal or SSH (`appinst <path-to-ipa>`).
 
 ---
 
-## Method 1: Sideloadly (Windows / macOS) — Recommended
+## Method 1: Sideloadly (Windows / macOS) — Computer Sideloading
 
 1. Download and install **Sideloadly** on your computer (`https://sideloadly.io/`).
 2. Connect your iPhone 5 to your computer via USB.
@@ -28,7 +29,21 @@ This guide covers installing **VinylWave v1.0.0-beta1** on an iPhone 5 or compat
 
 ---
 
-## Method 2: On-Device Installation via Filza File Manager (Jailbroken)
+## Method 2: On-Device Installation via appinst (Zebra / Terminal / SSH) — Recommended
+
+1. Open **Zebra** (or Cydia) on your jailbroken iPhone 5.
+2. Add Karen's Repo: `https://cydia.akemi.ai/`.
+3. Search for and install **appinst (App Installer)** (this will automatically pull `AppSync Unified` as a dependency if not already installed).
+4. Download `VinylWave-iPhone5-armv7-v49-b14c.ipa` to your device (via Safari, Filza, curl, or SFTP to `/var/mobile/Downloads/` or `/tmp/`).
+5. Open your device terminal (MobileTerminal, NewTerm) or connect via SSH, and run:
+   ```bash
+   appinst /var/mobile/Downloads/VinylWave-iPhone5-armv7-v49-b14c.ipa
+   ```
+6. The app will install cleanly into `/Applications/` and appear on your home screen.
+
+---
+
+## Method 3: On-Device Installation via Filza File Manager (Jailbroken)
 
 1. Open Safari on your jailbroken iPhone 5.
 2. Navigate to `https://github.com/ChopCho/VinylWave-Release/releases/tag/v1.0.0-beta1`.
@@ -39,12 +54,13 @@ This guide covers installing **VinylWave v1.0.0-beta1** on an iPhone 5 or compat
 
 ---
 
-## Method 3: AltStore / AltServer
+## Method 4: AltStore / AltServer
 
 1. Ensure **AltServer** is running on your computer.
 2. Transfer the `.ipa` to your iPhone 5 via AirDrop, iCloud Drive, or web download.
 3. Open **AltStore** on your device, navigate to the **My Apps** tab, tap the **+** button, and select `VinylWave-iPhone5-armv7-v49-b14c.ipa`.
 4. Allow AltStore to complete installation.
+
 
 ---
 
@@ -53,6 +69,6 @@ This guide covers installing **VinylWave v1.0.0-beta1** on an iPhone 5 or compat
 - **Crash immediately on launch:**  
   Verify that your device is jailbroken with **AppSync Unified** installed, or that you signed the IPA with a valid Apple ID profile.
 - **Search or playback fails / Network Error:**  
-  Ensure **TLSFix** is active. iOS 10.3.4 and earlier cannot connect to modern HTTPS endpoints without TLSFix.
+  Verify that the device has an active Wi-Fi or cellular data connection and can reach internet services.
 - **No sound during background lock:**  
   Check that the device mute switch is not set to silent, and verify background audio permissions in Settings.
